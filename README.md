@@ -50,5 +50,5 @@ Create a Google Sheet with a tab named `RawData`. The workflow expects specific 
     * Logs prediction to Google Sheets.
 2.  **5:00 PM Trigger:** Fetches evening forecast.
     * If rain detected after 6 PM: Sends specific evening warning.
-3.  **6:00 AM (Next Day) Trigger:** * Fetches historical weather data for the previous day.
+3.  **6:00 AM (Next Day) Trigger:** Fetches historical weather data for the previous day.
     * Logs daily and hourly comparisons for `Predicted` vs `Actual` into Google Sheets.
