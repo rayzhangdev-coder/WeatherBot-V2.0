@@ -5,7 +5,7 @@ An automated weather notification system built with **n8n**. This workflow monit
 Also logs predictions vs. actual weather data into Google Sheets. My demo google sheets: https://docs.google.com/spreadsheets/d/1OaOczzJYu0bQVdxowieUxfSqqHm83aAmB0Ej2sZ3ruU/edit?usp=sharing
 
 * **Multi-User Support:** Easily scalable array of user objects to notify multiple friends/roommates.
-* **Different Messages Based on Rain Proability:** Sends different messages to keep it fresh.
+* **Different Messages Based on Rain Proability:** Sends custom messages for different rain probabilties to keep it fresh.
 
 ## Prerequisites
 
