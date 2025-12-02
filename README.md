@@ -2,7 +2,7 @@
 
 A smart, automated weather notification system built with **n8n**. This workflow monitors weather forecasts and alerts specific Telegram users if rain is expected during class hours (8 AM - 5 PM) or evening plans (post-6 PM).
 
-It goes beyond simple forecasting by tracking its own accuracy—logging predictions vs. actual weather data into Google Sheets and sending apology messages if a prediction was incorrect.
+Also logs predictions vs. actual weather data into Google Sheets and sending apology messages if a prediction was incorrect.
 
 ## Features
 
