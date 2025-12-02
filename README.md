@@ -2,16 +2,10 @@
 
 An automated weather notification system built with **n8n**. This workflow monitors weather forecasts and alerts specific Telegram users if rain is expected during class hours (8 AM - 5 PM) or evening plans (post-6 PM).
 
-Also logs predictions vs. actual weather data into Google Sheets and sending apology messages if a prediction was incorrect.
+Also logs predictions vs. actual weather data into Google Sheets. My demo google sheets: https://docs.google.com/spreadsheets/d/1OaOczzJYu0bQVdxowieUxfSqqHm83aAmB0Ej2sZ3ruU/edit?usp=sharing
 
-## Features
-
-
-* **Morning and Evening Updates:** Sends first alert at 8 AM. Re-checks weather at 5 PM to warn users about rain during evening plans (6 PM - 11 PM).
 * **Multi-User Support:** Easily scalable array of user objects to notify multiple friends/roommates.
-* **Accuracy Tracking:** Logs all predictions to a Google Sheet and compares them with historical data the next day.
 * **Different Messages Based on Rain Proability:** Sends different messages to keep it fresh.
-
 
 ## Prerequisites
 
@@ -57,5 +51,4 @@ Create a Google Sheet with a tab named `RawData`. The workflow expects specific 
 2.  **5:00 PM Trigger:** Fetches evening forecast.
     * If rain detected after 6 PM: Sends specific evening warning.
 3.  **6:00 AM (Next Day) Trigger:** * Fetches historical weather data for the previous day.
-    * Compares `Predicted` vs `Actual`.
-    * If the bot failed (predicted Clear but it Rained), it triggers the **Apology Message**.
+    * Logs daily and hourly comparisons for `Predicted` vs `Actual` into Google Sheets.
