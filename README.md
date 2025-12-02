@@ -6,11 +6,12 @@ Also logs predictions vs. actual weather data into Google Sheets and sending apo
 
 ## Features
 
-* **Smart Morning Alerts:** Checks the forecast at 8 AM. If rain is detected during the day (>= 60% chance), it sends a "Bring an Umbrella" alert.
-* **Evening Updates:** Re-checks weather at 5 PM to warn users about rain during evening plans (6 PM - 11 PM).
-* **Accuracy Tracking:** Logs all predictions to a Google Sheet and compares them with historical data the next day.
-* **Apology Protocol:** Automatically detects if a prediction was wrong (e.g., it rained when it wasn't supposed to) and sends a humorous apology message.
+
+* **Morning and Evening Updates:** Sends first alert at 8 AM. Re-checks weather at 5 PM to warn users about rain during evening plans (6 PM - 11 PM).
 * **Multi-User Support:** Easily scalable array of user objects to notify multiple friends/roommates.
+* **Accuracy Tracking:** Logs all predictions to a Google Sheet and compares them with historical data the next day.
+* **Different Messages Based on Rain Proability:** Sends different messages to keep it fresh.
+
 
 ## Prerequisites
 
