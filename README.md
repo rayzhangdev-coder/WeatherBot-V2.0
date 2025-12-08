@@ -1,11 +1,22 @@
 # n8n Telegram WeatherBot
 
-An automated weather notification system built with **n8n**. This workflow monitors weather forecasts and alerts specific Telegram users if rain is expected during class hours (8 AM - 5 PM) or evening plans (post-6 PM).
+An automated weather notification system built with **n8n**. This workflow monitors weather forecasts and alerts specific Telegram users if rain, snow, or extreme temperatures are expected during class hours (8 AM - 5 PM) or evening plans (post-6 PM).
 
-Also logs predictions vs. actual weather data into Google Sheets. My demo google sheets: https://docs.google.com/spreadsheets/d/1OaOczzJYu0bQVdxowieUxfSqqHm83aAmB0Ej2sZ3ruU/edit?usp=sharing
+It also logs predictions vs. actual weather data into Google Sheets for accuracy tracking.
+**[View my Demo Google Sheet](https://docs.google.com/spreadsheets/d/1OaOczzJYu0bQVdxowieUxfSqqHm83aAmB0Ej2sZ3ruU/edit?usp=sharing)**
+
+## 📂 Repository Structure
+
+* **`WeatherBot-V2.0.json`** (Main Branch): The latest version containing Rain, Temperature, and Snow alerts.
+* **`OlderVersions/WeatherBot-V1.0.json`**: The legacy version (Rain alerts only).
+
+## 🚀 Features
 
 * **Multi-User Support:** Easily scalable array of user objects to notify multiple friends/roommates.
-* **Different Messages Based on Rain Proability:** Sends custom messages for different rain probabilties to keep it fresh.
+* **Smart Rain Alerts:** Sends specific alerts for rain during class vs. rain during evening plans.
+* **🌡️ Temperature Alerts:** Warns users to bring a jacket if temperatures drop below a certain threshold.
+* **❄️ Snow Reports:** Dedicated alerts if snow probability is high.
+* **Data Logging:** Logs daily predictions and verifies them against actual historical data the next day.
 
 ## Prerequisites
 
@@ -17,7 +28,7 @@ Also logs predictions vs. actual weather data into Google Sheets. My demo google
 ## Setup & Installation
 
 ### 1. Import the Workflow
-1.  Download the `weather-bot.json` file from this repository.
+1.  Download `WeatherBot-V2.0.json` from the main branch of this repository.
 2.  Open your n8n dashboard.
 3.  Click **Add Workflow** -> **Import from File** and select the JSON file.
 
@@ -27,28 +38,32 @@ You must set up the following credentials in n8n for the nodes to authenticate:
 * **Google Sheets API:** Create a credential named `Google Sheets account` using your Service Account email and Private Key.
 
 ### 3. Replace Placeholders (Crucial Step)
-To protect privacy, the workflow contains placeholders. You must **Find and Replace** these values in the nodes before activating the workflow.
+To protect privacy and make this template location-neutral, the workflow contains placeholders. You must **Find and Replace** these values in the nodes before activating the workflow.
 
-| Placeholder | Where to find it | Value to replace with |
+| Placeholder / Value | Where to find it | Value to replace with |
 | :--- | :--- | :--- |
-| `PLACEHOLDER_CHAT_ID_X` | **Code Nodes** (UserData, UserData1, UserData2) | The numeric Telegram Chat ID for the user you want to message. |
-| `YOUR_WEATHERAPI_KEY` | **HTTP Request Nodes** (Rain HTTP Request, etc.) | Your API Key from WeatherAPI.com. |
+| `PLACEHOLDER_CHAT_ID_X` | **Code Nodes** (UserData, etc.) | The numeric Telegram Chat ID for the user you want to message. |
+| `YOUR_WEATHERAPI_KEY` | **HTTP Request Nodes** | Your API Key from WeatherAPI.com. |
+| `PLACEHOLDER_CITY` | **HTTP Request Nodes** | Your city (e.g., `college park` or `new york`). |
+| `0.00` (Lat/Long) | **Code Node** ("get yesterday's date") | The specific Latitude and Longitude of your location (required for historical data). |
 | `PLACEHOLDER_SPREADSHEET_ID` | **Google Sheets Nodes** | The long ID string found in your Google Sheet URL. |
-| `PLACEHOLDER_CREDENTIAL_ID` | **Various Nodes** | *Note: If you set up credentials in n8n (Step 2), you can simply select them from the dropdown menu in the node UI instead of pasting an ID.* |
+| `PLACEHOLDER_LOCATION` | **Google Sheets Node** (Predicted) | The text name of your location (e.g., "College Park, MD"). |
 | `email@example.com` | **OpenMeteo Request Node** | Your email address (required by OpenMeteo for "User-Agent" headers). |
 
 ### 4. Google Sheets Setup
-Create a Google Sheet with a tab named `RawData`. The workflow expects specific columns to exist for logging.  
-* **Required Columns:** `Date`, `Location`, `Predicted Rain During Day`, `Actual Rain During Day`, `Predicted 8am`... `Predicted 11pm`, `Actual 8am`... `Actual 11pm`.  
-*You can copy the way I structured it from my demo Google Sheets and use my use Google Apps Script code within the cells to calculate accuracy through comparisons between Predicted and Actual columns.*
+Create a Google Sheet with a tab named `RawData`. The workflow expects specific columns to exist for logging.
+* **Required Columns:** `Date`, `Location`, `Predicted Rain During Day`, `Actual Rain During Day`, `Predicted 8am`... `Predicted 11pm`, `Actual 8am`... `Actual 11pm`.
+* *Tip: You can copy the structure directly from my demo Google Sheet linked above.*
 
-## Logic Overview
+## 🧠 Logic Overview (V2.0)
 
-1.  **8:00 AM Trigger:** Fetches forecast.
-    * If rain > 60%: Sends "alert" message.
-    * Else: Sends "no umbrella needed" message.
-    * Logs prediction to Google Sheets.
+1.  **8:00 AM Trigger:** Fetches daily forecast.
+    * **Rain Check:** If > 60%, sends an umbrella alert. If clear, sends a "no umbrella needed" message.
+    * **Temp Check:** If "feels like" temp is low, sends a "Bring a Jacket" alert.
+    * **Snow Check:** If snow probability is high, sends a Snow Report.
+    * **Logging:** Logs all hourly predictions to Google Sheets.
 2.  **5:00 PM Trigger:** Fetches evening forecast.
-    * If rain detected after 6 PM: Sends specific evening warning.
+    * Checks for Rain, Snow, and Low Temps specifically for the hours of 6 PM - 11 PM.
+    * Sends a warning if you have evening plans.
 3.  **6:00 AM (Next Day) Trigger:** Fetches historical weather data for the previous day.
-    * Logs daily and hourly comparisons for `Predicted` vs `Actual` into Google Sheets.
+    * Logs daily and hourly comparisons for `Predicted` vs `Actual` into Google Sheets to track bot accuracy.
