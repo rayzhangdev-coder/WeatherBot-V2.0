@@ -1,4 +1,4 @@
-# n8n Telegram WeatherBot
+# Telegram WeatherBot
 
 An automated weather notification system built with **n8n**. This workflow monitors weather forecasts and alerts specific Telegram users if rain, snow, or extreme temperatures are expected during class hours (8 AM - 5 PM) or evening plans (post-6 PM).
 
