@@ -5,12 +5,12 @@ An automated weather notification system built with **n8n**. This workflow monit
 It also logs predictions vs. actual weather data into Google Sheets for accuracy tracking.
 **[View my Demo Google Sheet](https://docs.google.com/spreadsheets/d/1OaOczzJYu0bQVdxowieUxfSqqHm83aAmB0Ej2sZ3ruU/edit?usp=sharing)**
 
-## 📂 Repository Structure
+## Repository Structure
 
 * **`WeatherBot-V2.0.json`** (Main Branch): The latest version containing Rain, Temperature, and Snow alerts.
 * **`OlderVersions/WeatherBot-V1.0.json`**: The legacy version (Rain alerts only).
 
-## 🚀 Features
+## Features
 
 * **Multi-User Support:** Easily scalable array of user objects to notify multiple friends/roommates.
 * **Smart Rain Alerts:** Sends specific alerts for rain during class vs. rain during evening plans.
@@ -55,7 +55,7 @@ Create a Google Sheet with a tab named `RawData`. The workflow expects specific 
 * **Required Columns:** `Date`, `Location`, `Predicted Rain During Day`, `Actual Rain During Day`, `Predicted 8am`... `Predicted 11pm`, `Actual 8am`... `Actual 11pm`.
 * *Tip: You can copy the structure directly from my demo Google Sheet linked above.*
 
-## 🧠 Logic Overview (V2.0)
+## Logic Overview (V2.0)
 
 1.  **8:00 AM Trigger:** Fetches daily forecast.
     * **Rain Check:** If > 60%, sends an umbrella alert. If clear, sends a "no umbrella needed" message.
