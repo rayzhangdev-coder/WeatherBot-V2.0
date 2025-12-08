@@ -13,7 +13,7 @@ It also logs predictions vs. actual weather data into Google Sheets for accuracy
 ## Features
 
 * **Multi-User Support:** Easily scalable array of user objects to notify multiple friends/roommates.
-* **☔️ Smart Rain Alerts:** Sends specific alerts for rain during class vs. rain during evening plans.
+* **☔️ Rain Alerts:** Sends specific alerts for rain during class vs. rain during evening plans.
 * **🌡️ Temperature Alerts:** Send specific alerts to bring a jacket for times of low temperature during day.
 * **❄️ Snow Reports:** Send specific alerts for times of snow during day.
 * **Data Logging:** Logs daily predictions and verifies them against actual historical data the next day.
