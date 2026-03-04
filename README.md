@@ -7,11 +7,6 @@ Featuring:
 
 [View My Demo Google Sheet Here](https://docs.google.com/spreadsheets/d/1OaOczzJYu0bQVdxowieUxfSqqHm83aAmB0Ej2sZ3ruU/edit?usp=sharing](https://docs.google.com/spreadsheets/d/e/2PACX-1vRVNe4HU8EPpL1YDf07ZsrQW6otl9MsIZLo9baaGXQtTsA6CqOnn09mzTLV1nKl6rfYv9gjYOGlaYs4/pubhtml?gid=0&single=true )
 
-## Repository Structure
-
-* **`WeatherBot-V2.0.json`** (Main Branch): The latest version containing Rain, Temperature, and Snow alerts.
-* **`OlderVersions/WeatherBot-V1.0.json`**: The legacy version (Rain alerts only).
-
 ## Features
 
 * **Rain Alerts:** Sends specific alerts for rain during class vs. rain during evening plans.
@@ -20,6 +15,11 @@ Featuring:
 * **Data Logging:** Logs daily predictions and verifies them against actual historical data the next day.
 * **Data Processing:** Calculates daily and hourly accuracy based on prediction and actual data columns with Google Apps Script.
 * **Multi-User Support:** Easily scalable array of user objects to notify multiple friends/roommates.
+
+## Repository Structure
+
+* **`WeatherBot-V2.0.json`** (Main Branch): The latest version containing Rain, Temperature, and Snow alerts.
+* **`OlderVersions/WeatherBot-V1.0.json`**: The legacy version (Rain alerts only).
 
 ## Prerequisites
 
