@@ -7,7 +7,7 @@ Featuring:
 
 [View My Demo Google Sheet Here](https://docs.google.com/spreadsheets/d/1OaOczzJYu0bQVdxowieUxfSqqHm83aAmB0Ej2sZ3ruU/edit?usp=sharing](https://docs.google.com/spreadsheets/d/e/2PACX-1vRVNe4HU8EPpL1YDf07ZsrQW6otl9MsIZLo9baaGXQtTsA6CqOnn09mzTLV1nKl6rfYv9gjYOGlaYs4/pubhtml?gid=0&single=true )
 
-![image alt] (https://github.com/rayzhangdev-coder/WeatherBot-V2.0/blob/main/DIAGRAM-n8nWeatherWorkflowAutomation.png?raw=true)
+![image alt](https://github.com/rayzhangdev-coder/WeatherBot-V2.0/blob/main/DIAGRAM-n8nWeatherWorkflowAutomation.png?raw=true)
 
 ## Features
 
