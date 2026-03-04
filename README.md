@@ -18,6 +18,7 @@ Featuring:
 * **Temperature Alerts:** Send specific alerts to bring a jacket for times of low temperature during day.
 * **Snow Reports:** Send specific alerts for times of snow during day.
 * **Data Logging:** Logs daily predictions and verifies them against actual historical data the next day.
+* **Data Processing:** Calculates daily and hourly accuracy based on prediction and actual data columns.
 * **Multi-User Support:** Easily scalable array of user objects to notify multiple friends/roommates.
 
 ## Prerequisites
